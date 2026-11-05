@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "title": "今晚别开门",
+    "episode": "第一幕",
+    "series": "屏幕录屏式模拟恐怖栏目",
+    "date": "2026-XX-XX",
+    "city": "虚构城市名",
+    "location": "虚构小区/楼栋/房号",
+    "protagonist": "主角名",
+    "premise": "一句话说明本集核心事件",
+    "horror_type": "感染/入侵/怪谈/规则，选其一",
+    "misdirection": ["理性解释1", "理性解释2"],
+    "target_duration_sec": 270,
+    "style": {
+      "color": "夜间冷蓝、暗色UI、红色警示",
+      "font": "系统默认无衬线",
+      "grain": "轻微噪点与暗角"
+    }
+  },
+  "characters": [
+    {"name": "主角名", "role": "第一人称设备使用者", "note": "不出镜"},
+    {"name": "好友A", "role": "朋友群成员", "speech": "口语、爱发表情包"},
+    {"name": "物业管家", "role": "业主群管理员", "speech": "正式、简短"},
+    {"name": "邻居", "role": "同楼层住户", "speech": "客气、胆小"},
+    {"name": "异常角色", "role": "后期行为异常", "speech": "机械重复、答非所问"}
+  ],
+  "events": [
+    {
+      "id": "e01",
+      "type": "scene",
+      "time_sec": 0,
+      "window": "登录界面",
+      "description": "系统登录锁屏，头像与PIN输入框",
+      "intensity": 1
+    },
+    {
+      "id": "e02",
+      "type": "action",
+      "time_sec": 8,
+      "window": "登录界面",
+      "description": "输入PIN并回车，进入桌面",
+      "sfx": "键盘敲击"
+    },
+    {
+      "id": "e03",
+      "type": "scene",
+      "time_sec": 15,
+      "window": "桌面",
+      "description": "夜间壁纸、桌面图标、任务栏",
+      "intensity": 1
+    },
+    {
+      "id": "e04",
+      "type": "sfx",
+      "time_sec": 24,
+      "window": "桌面",
+      "description": "第一声强消息提示音",
+      "sfx": "消息提示音(强)"
+    },
+    {
+      "id": "e05",
+      "type": "message",
+      "time_sec": 26,
+      "window": "朋友群",
+      "from": "好友A",
+      "kind": "text",
+      "content": "在吗，上号",
+      "intensity": 1
+    },
+    {
+      "id": "e06",
+      "type": "message",
+      "time_sec": 30,
+      "window": "朋友群",
+      "from": "主角名",
+      "kind": "sticker",
+      "content": "表情包",
+      "intensity": 1
+    },
+    {
+      "id": "e07",
+      "type": "scene",
+      "time_sec": 37,
+      "window": "业主群",
+      "description": "切换到大型业主群",
+      "intensity": 2
+    },
+    {
+      "id": "e08",
+      "type": "message",
+      "time_sec": 40,
+      "window": "业主群",
+      "from": "物业管家",
+      "kind": "text",
+      "content": "通知：今晚22:00起东门只进不出，请减少外出",
+      "intensity": 2
+    },
+    {
+      "id": "e09",
+      "type": "message",
+      "time_sec": 55,
+      "window": "业主群",
+      "from": "邻居",
+      "kind": "image",
+      "content": "夜间现场图片(预留)",
+      "intensity": 3
+    },
+    {
+      "id": "e10",
+      "type": "message",
+      "time_sec": 74,
+      "window": "业主群",
+      "from": "邻居",
+      "kind": "text",
+      "content": "不是喝多，他在咬底下那个人",
+      "intensity": 3
+    },
+    {
+      "id": "e11",
+      "type": "scene",
+      "time_sec": 130,
+      "window": "浏览器",
+      "description": "搜索关键词查证，结果仍指向理性解释",
+      "intensity": 3
+    },
+    {
+      "id": "e12",
+      "type": "notification",
+      "time_sec": 148,
+      "window": "浏览器",
+      "from": "系统",
+      "content": "应用推送：一则未经证实的传言",
+      "intensity": 3
+    },
+    {
+      "id": "e13",
+      "type": "message",
+      "time_sec": 166,
+      "window": "异常角色私聊",
+      "from": "异常角色",
+      "kind": "text",
+      "content": "现在出来，我等不及了",
+      "intensity": 4
+    },
+    {
+      "id": "e14",
+      "type": "message",
+      "time_sec": 172,
+      "window": "异常角色私聊",
+      "from": "异常角色",
+      "kind": "text",
+      "content": "现在出来",
+      "intensity": 4
+    },
+    {
+      "id": "e15",
+      "type": "log",
+      "time_sec": 203,
+      "window": "门锁App",
+      "timestamp": "23:28:15",
+      "content": "密码错误",
+      "intensity": 4
+    },
+    {
+      "id": "e16",
+      "type": "notification",
+      "time_sec": 210,
+      "window": "门锁App",
+      "from": "物业",
+      "content": "警告：无论谁敲门都不要开",
+      "sfx": "低频冲击",
+      "intensity": 5
+    },
+    {
+      "id": "e17",
+      "type": "log",
+      "time_sec": 226,
+      "window": "门锁App",
+      "timestamp": "23:37:58",
+      "content": "安防报警",
+      "sfx": "警报声",
+      "intensity": 5
+    },
+    {
+      "id": "e18",
+      "type": "action",
+      "time_sec": 242,
+      "window": "门锁App",
+      "description": "界面状态：门外正在输入密码",
+      "sfx": "敲门声+警报",
+      "intensity": 5
+    },
+    {
+      "id": "e19",
+      "type": "title_card",
+      "time_sec": 252,
+      "window": "黑场",
+      "title": "今晚别开门",
+      "subtitle": "第一幕 · 完",
+      "intensity": 5
+    }
+  ]
+}
