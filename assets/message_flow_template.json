@@ -22,13 +22,21 @@
     {"name": "好友A", "role": "朋友群成员", "speech": "口语、爱发表情包"},
     {"name": "物业管家", "role": "业主群管理员", "speech": "正式、简短"},
     {"name": "邻居", "role": "同楼层住户", "speech": "客气、胆小"},
-    {"name": "异常角色", "role": "后期行为异常", "speech": "机械重复、答非所问"}
+    {"name": "异常角色", "role": "后期行为异常", "speech": "机械重复、乱码刷屏"}
   ],
   "events": [
     {
+      "id": "e00",
+      "type": "warning",
+      "time_sec": 0,
+      "window": "观看提示",
+      "description": "黑底红字：本视频含恐怖惊吓元素及突然高音量音效，不适者请勿观看",
+      "intensity": 1
+    },
+    {
       "id": "e01",
       "type": "scene",
-      "time_sec": 0,
+      "time_sec": 4,
       "window": "登录界面",
       "description": "系统登录锁屏，头像与PIN输入框",
       "intensity": 1
@@ -36,7 +44,7 @@
     {
       "id": "e02",
       "type": "action",
-      "time_sec": 8,
+      "time_sec": 12,
       "window": "登录界面",
       "description": "输入PIN并回车，进入桌面",
       "sfx": "键盘敲击"
@@ -44,7 +52,7 @@
     {
       "id": "e03",
       "type": "scene",
-      "time_sec": 15,
+      "time_sec": 18,
       "window": "桌面",
       "description": "夜间壁纸、桌面图标、任务栏",
       "intensity": 1
@@ -129,8 +137,8 @@
       "time_sec": 148,
       "window": "浏览器",
       "from": "系统",
-      "content": "应用推送：一则未经证实的传言",
-      "intensity": 3
+      "content": "红色紧急警报弹窗（文字夹乱码）",
+      "intensity": 4
     },
     {
       "id": "e13",
@@ -144,16 +152,24 @@
     },
     {
       "id": "e14",
-      "type": "message",
+      "type": "garble",
       "time_sec": 172,
       "window": "异常角色私聊",
       "from": "异常角色",
-      "kind": "text",
-      "content": "现在出来",
+      "content": "闃垮Ж灏卞湪浣犻棬鍙ｏ紝鑳戒笉鑳藉紑涓嬮棬",
       "intensity": 4
     },
     {
       "id": "e15",
+      "type": "rule_card",
+      "time_sec": 185,
+      "window": "应急频道",
+      "rule": "如果有人一直在重复同一句话，不要回答他",
+      "description": "蓝底红色象形图标与规则文字，标注编号03/07",
+      "intensity": 4
+    },
+    {
+      "id": "e16",
       "type": "log",
       "time_sec": 203,
       "window": "门锁App",
@@ -162,7 +178,7 @@
       "intensity": 4
     },
     {
-      "id": "e16",
+      "id": "e17",
       "type": "notification",
       "time_sec": 210,
       "window": "门锁App",
@@ -172,22 +188,12 @@
       "intensity": 5
     },
     {
-      "id": "e17",
-      "type": "log",
-      "time_sec": 226,
-      "window": "门锁App",
-      "timestamp": "23:37:58",
-      "content": "安防报警",
-      "sfx": "警报声",
-      "intensity": 5
-    },
-    {
       "id": "e18",
-      "type": "action",
-      "time_sec": 242,
-      "window": "门锁App",
-      "description": "界面状态：门外正在输入密码",
-      "sfx": "敲门声+警报",
+      "type": "live_shot",
+      "time_sec": 222,
+      "window": "实景走廊",
+      "description": "黑暗中第一人称手持/夜视，昏暗走廊与绿色应急灯，手机悬浮显示门锁打开",
+      "sfx": "低频冲击+急促环境声",
       "intensity": 5
     },
     {
