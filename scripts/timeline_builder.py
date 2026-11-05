@@ -45,10 +45,18 @@ def main(path):
         window = e.get("window", "")
         if typ == "message":
             text = f"[{e.get('kind', 'text')}] {e.get('from', '')}: {e.get('content', '')}"
+        elif typ == "garble":
+            text = f"[乱码] {e.get('from', '')}: {e.get('content', '')}"
         elif typ in ("notification", "log"):
             text = f"{e.get('from', e.get('timestamp', ''))}：{e.get('content', '')}"
         elif typ == "title_card":
             text = f"标题卡：{e.get('title', '')} / {e.get('subtitle', '')}"
+        elif typ == "rule_card":
+            text = f"规则图示：{e.get('rule', e.get('description', ''))}"
+        elif typ == "warning":
+            text = f"观看提示：{e.get('description', '')}"
+        elif typ == "live_shot":
+            text = f"实景第一人称：{e.get('description', '')}"
         elif typ == "scene":
             text = f"进入界面：{e.get('description', '')}"
         elif typ == "action":
@@ -98,6 +106,12 @@ def main(path):
         dwell[w] += en - s
     print("  界面停留时长：", dict(dwell))
 
+    # 异常信号统计：乱码、规则图示、实景
+    garble_n = sum(1 for e in events if e.get("type") == "garble")
+    rule_n = sum(1 for e in events if e.get("type") == "rule_card")
+    live_n = sum(1 for e in events if e.get("type") == "live_shot")
+    print(f"  异常信号：乱码{garble_n}处 / 规则图示{rule_n}处 / 实景{live_n}处")
+
     # 强度曲线（每 30 秒取最大强度）
     print("\n【强度曲线（每30秒窗口内最大强度）】")
     bucket = defaultdict(int)
@@ -115,10 +129,15 @@ def main(path):
             print(f"  脚本末事件({last_t}s)与目标时长({target}s)差距较大，请增减消息或调整节奏。")
         else:
             print("  脚本时长与目标基本吻合。")
+    # 时长过长警告：短视频平台完播率优先，参考第二幕 7:35 数据下滑的教训
+    if last_t > 360:
+        print(f"  警告：总时长 {last_t}s 超过 6 分钟，中段静态对话易流失观众，建议压缩到 5 分钟内。")
     if len(sfx_events) < 3:
         print("  音效点偏少，检查是否需要补充界面音与至少一次高潮突发声。")
+    if garble_n > 6:
+        print(f"  乱码出现 {garble_n} 处偏多，注意节制或升级形式，避免观众脱敏。")
     if not any(e.get("type") == "title_card" for e in events):
-        print("  缺少结尾标题卡。")
+        print("  缺少结尾标题卡（系列化需统一幕次标识）。")
     # 检查时间戳是否单调
     times = [e.get("time_sec", 0) for e in events]
     if times != sorted(times):
